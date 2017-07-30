@@ -93,7 +93,7 @@
                         <viewControllerLayoutGuide type="top" id="R67-of-J5L"/>
                         <viewControllerLayoutGuide type="bottom" id="7zI-qc-8zH"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6tB-uc-3L8">
+                    <view key="view" contentMode="scaleToFill" id="6tB-uc-3L8" customClass="GradientView" customModule="Smack" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
