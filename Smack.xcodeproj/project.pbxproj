@@ -9,18 +9,18 @@
 /* Begin PBXBuildFile section */
 		582EDE533872382E1202CFD6 /* Pods_Smack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5269107779AB0542D13F36DD /* Pods_Smack.framework */; };
 		9885B8F11F2D7A2F0025519D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9885B8F01F2D7A2F0025519D /* AppDelegate.swift */; };
-		9885B8F31F2D7A2F0025519D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9885B8F21F2D7A2F0025519D /* ViewController.swift */; };
 		9885B8F61F2D7A2F0025519D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9885B8F41F2D7A2F0025519D /* Main.storyboard */; };
 		9885B8F81F2D7A2F0025519D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9885B8F71F2D7A2F0025519D /* Assets.xcassets */; };
 		9885B8FB1F2D7A2F0025519D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9885B8F91F2D7A2F0025519D /* LaunchScreen.storyboard */; };
 		9885B9071F2D7F1B0025519D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9885B9061F2D7F1B0025519D /* SWRevealViewController.m */; };
+		9885B90C1F2D82FE0025519D /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9885B90B1F2D82FE0025519D /* ChatVC.swift */; };
+		9885B90E1F2D83100025519D /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9885B90D1F2D83100025519D /* ChannelVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5269107779AB0542D13F36DD /* Pods_Smack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9885B8ED1F2D7A2F0025519D /* Smack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9885B8F01F2D7A2F0025519D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9885B8F21F2D7A2F0025519D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9885B8F51F2D7A2F0025519D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9885B8F71F2D7A2F0025519D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9885B8FA1F2D7A2F0025519D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -28,6 +28,8 @@
 		9885B9041F2D7F1A0025519D /* Smack-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Smack-Bridging-Header.h"; sourceTree = "<group>"; };
 		9885B9051F2D7F1B0025519D /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../../../Downloads/Smack Assets/SWReveal/SWRevealViewController.h"; sourceTree = "<group>"; };
 		9885B9061F2D7F1B0025519D /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../../../Downloads/Smack Assets/SWReveal/SWRevealViewController.m"; sourceTree = "<group>"; };
+		9885B90B1F2D82FE0025519D /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		9885B90D1F2D83100025519D /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
 		A588330179790104E628DB7A /* Pods-Smack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smack/Pods-Smack.debug.xcconfig"; sourceTree = "<group>"; };
 		A866E8D45A7630ABA3A79F42 /* Pods-Smack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smack.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smack/Pods-Smack.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,8 +77,10 @@
 			isa = PBXGroup;
 			children = (
 				9885B9031F2D7EF70025519D /* Supporting Files */,
+				9885B90A1F2D82D20025519D /* Model */,
+				9885B9091F2D82CD0025519D /* View */,
+				9885B9081F2D82C80025519D /* Controller */,
 				9885B8F01F2D7A2F0025519D /* AppDelegate.swift */,
-				9885B8F21F2D7A2F0025519D /* ViewController.swift */,
 				9885B8F41F2D7A2F0025519D /* Main.storyboard */,
 				9885B8F71F2D7A2F0025519D /* Assets.xcassets */,
 				9885B8F91F2D7A2F0025519D /* LaunchScreen.storyboard */,
@@ -93,6 +97,29 @@
 				9885B9041F2D7F1A0025519D /* Smack-Bridging-Header.h */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9885B9081F2D82C80025519D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9885B90B1F2D82FE0025519D /* ChatVC.swift */,
+				9885B90D1F2D83100025519D /* ChannelVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9885B9091F2D82CD0025519D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9885B90A1F2D82D20025519D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BDC882B7F1276E7370F4FA1F /* Frameworks */ = {
@@ -226,7 +253,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9885B8F31F2D7A2F0025519D /* ViewController.swift in Sources */,
+				9885B90E1F2D83100025519D /* ChannelVC.swift in Sources */,
+				9885B90C1F2D82FE0025519D /* ChatVC.swift in Sources */,
 				9885B8F11F2D7A2F0025519D /* AppDelegate.swift in Sources */,
 				9885B9071F2D7F1B0025519D /* SWRevealViewController.m in Sources */,
 			);
