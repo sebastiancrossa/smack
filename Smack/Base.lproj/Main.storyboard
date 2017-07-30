@@ -192,10 +192,10 @@
             </objects>
             <point key="canvasLocation" x="820" y="-254.12293853073464"/>
         </scene>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="goh-NT-fob">
             <objects>
-                <viewController id="DwB-xL-Ie9" sceneMemberID="viewController">
+                <viewController id="DwB-xL-Ie9" customClass="LoginVC" customModule="Smack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="exF-5X-6bR"/>
                         <viewControllerLayoutGuide type="bottom" id="KD6-qO-H1i"/>
@@ -264,6 +264,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UiX-Fl-PrE">
                                 <rect key="frame" x="331" y="28" width="28" height="28"/>
                                 <state key="normal" image="closeButton"/>
+                                <connections>
+                                    <action selector="closePressed:" destination="DwB-xL-Ie9" eventType="touchUpInside" id="5o7-pL-ymu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Wi-83-XPJ">
                                 <rect key="frame" x="62" y="286" width="250" height="50"/>
@@ -273,7 +276,7 @@
                                     <constraint firstAttribute="width" constant="250" id="gaY-OG-Awk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Login">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
@@ -303,6 +306,9 @@
                             <constraint firstItem="pbw-2Q-7GJ" firstAttribute="centerX" secondItem="ElT-f0-mmM" secondAttribute="centerX" id="xt2-cs-rKf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="9Wi-83-XPJ" id="bTV-Ze-MVB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dE2-OB-ldf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
