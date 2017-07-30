@@ -18,6 +18,11 @@ class LoginVC: UIViewController {
         loginButton.layer.cornerRadius = 5.0
     }
     
+    // Will segue to CreateAccountVC
+    @IBAction func createAccountButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: TO_CREATE_ACCOUNT, sender: nil)
+    }
+    
     @IBAction func closePressed (_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

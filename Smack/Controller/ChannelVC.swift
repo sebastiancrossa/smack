@@ -12,6 +12,9 @@ class ChannelVC: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
+    // Target of the unwind segue
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue){}
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +23,7 @@ class ChannelVC: UIViewController {
         
     }
     
+    // Will segue over to the LoginVC
     @IBAction func loginButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: TO_LOGIN, sender: nil)
     }
