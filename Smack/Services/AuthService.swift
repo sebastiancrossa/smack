@@ -141,20 +141,5 @@ class AuthService {
                 debugPrint("-- Smack : Error in createUser function", response.result.error as Any)
             }
         }
-        
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
