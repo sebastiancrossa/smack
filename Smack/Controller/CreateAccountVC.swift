@@ -18,7 +18,7 @@ class CreateAccountVC: UIViewController {
         createAccountButton.layer.cornerRadius = 5.0
     }
     
-    // Will unwind over to the targetted view, which was set to the ChannelVCs
+    // Will unwind over to the targetted view, which was set to the ChannelVC
     @IBAction func closePressed(_ sender: Any) {
         performSegue(withIdentifier: UNWIND, sender: nil)
     }
