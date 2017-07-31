@@ -10,12 +10,9 @@ import UIKit
 
 class LoginVC: UIViewController {
     
-    @IBOutlet weak var loginButton: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginButton.layer.cornerRadius = 5.0
     }
     
     // Will segue to CreateAccountVC

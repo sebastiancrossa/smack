@@ -66,7 +66,6 @@ class AuthService {
                 debugPrint(response.result.error as Any)
             }
         }
-        
     }
     
 }

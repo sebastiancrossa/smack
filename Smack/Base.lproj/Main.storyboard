@@ -20,6 +20,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <layoutGuides/>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,6 +40,7 @@
         <scene sceneID="MLD-Xc-oCP">
             <objects>
                 <viewController id="qRC-fX-Jw3" customClass="ChatVC" customModule="Smack" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides/>
                     <view key="view" contentMode="scaleToFill" id="ovc-Bi-9kX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,6 +93,7 @@
         <scene sceneID="PbH-jG-mb4">
             <objects>
                 <viewController id="vQM-fu-V1S" customClass="ChannelVC" customModule="Smack" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides/>
                     <view key="view" contentMode="scaleToFill" id="6tB-uc-3L8" customClass="GradientView" customModule="Smack" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -188,6 +191,7 @@
         <scene sceneID="goh-NT-fob">
             <objects>
                 <viewController id="DwB-xL-Ie9" customClass="LoginVC" customModule="Smack" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides/>
                     <view key="view" contentMode="scaleToFill" id="ElT-f0-mmM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -256,7 +260,7 @@
                                     <action selector="closePressed:" destination="DwB-xL-Ie9" eventType="touchUpInside" id="5o7-pL-ymu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Wi-83-XPJ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Wi-83-XPJ" customClass="RoundedButton" customModule="Smack" customModuleProvider="target">
                                 <rect key="frame" x="62" y="286" width="250" height="50"/>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -267,6 +271,11 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbw-2Q-7GJ">
                                 <rect key="frame" x="88" y="336" width="199" height="26"/>
@@ -299,7 +308,6 @@
                         <viewLayoutGuide key="safeArea" id="CUR-og-4hL"/>
                     </view>
                     <connections>
-                        <outlet property="loginButton" destination="9Wi-83-XPJ" id="bTV-Ze-MVB"/>
                         <segue destination="xc1-er-FdN" kind="show" identifier="toCreateAccount" id="3Pi-Yl-ttw"/>
                     </connections>
                 </viewController>
@@ -311,6 +319,7 @@
         <scene sceneID="g5a-ge-WlF">
             <objects>
                 <viewController id="xc1-er-FdN" customClass="CreateAccountVC" customModule="Smack" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides/>
                     <view key="view" contentMode="scaleToFill" id="TJp-Mz-4IG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -385,7 +394,7 @@
                                     <action selector="closePressed:" destination="xc1-er-FdN" eventType="touchUpInside" id="w08-VX-vdy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMM-Cx-zBU">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMM-Cx-zBU" customClass="RoundedButton" customModule="Smack" customModuleProvider="target">
                                 <rect key="frame" x="62" y="597" width="250" height="50"/>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -396,6 +405,14 @@
                                 <state key="normal" title="Create Account">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="createAccountPressed:" destination="xc1-er-FdN" eventType="touchUpInside" id="0zf-ad-CAg"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="DTb-fj-Abq">
                                 <rect key="frame" x="137" y="299" width="100" height="100"/>
@@ -415,6 +432,7 @@
                                 </state>
                                 <connections>
                                     <action selector="createAccountButtonPressed:" destination="DwB-xL-Ie9" eventType="touchUpInside" id="tfO-EO-2uV"/>
+                                    <action selector="pickAvatarPressed:" destination="xc1-er-FdN" eventType="touchUpInside" id="Uv2-bO-1tu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PM0-VQ-NhW">
@@ -425,6 +443,7 @@
                                 </state>
                                 <connections>
                                     <action selector="createAccountButtonPressed:" destination="DwB-xL-Ie9" eventType="touchUpInside" id="Wdt-wq-rF9"/>
+                                    <action selector="pickBGColorPressed:" destination="xc1-er-FdN" eventType="touchUpInside" id="8w9-2I-0BK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -449,7 +468,10 @@
                         <viewLayoutGuide key="safeArea" id="eA5-ld-n9t"/>
                     </view>
                     <connections>
-                        <outlet property="createAccountButton" destination="MMM-Cx-zBU" id="z4j-mH-4Mi"/>
+                        <outlet property="emailText" destination="4cQ-Cc-6Ei" id="wGj-BL-jWG"/>
+                        <outlet property="passwordText" destination="Rhf-Zs-Nvm" id="i6C-Vr-wJt"/>
+                        <outlet property="userImage" destination="DTb-fj-Abq" id="loi-Cu-Dha"/>
+                        <outlet property="usernameText" destination="ruM-vp-dks" id="XO4-nN-pw0"/>
                         <segue destination="XJb-YC-Rx9" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="tuy-kL-Xwq"/>
                     </connections>
                 </viewController>

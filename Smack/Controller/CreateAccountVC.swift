@@ -10,12 +10,35 @@ import UIKit
 
 class CreateAccountVC: UIViewController {
     
-    @IBOutlet weak var createAccountButton: UIButton!
+    // Outlets
+    @IBOutlet weak var usernameText: UITextField!
+    @IBOutlet weak var emailText: UITextField!
+    @IBOutlet weak var passwordText: UITextField!
+    
+    @IBOutlet weak var userImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    @IBAction func pickAvatarPressed(_ sender: Any) {
         
-        createAccountButton.layer.cornerRadius = 5.0
+    }
+    
+    @IBAction func pickBGColorPressed(_ sender: Any) {
+        
+    }
+    
+    @IBAction func createAccountPressed(_ sender: Any) {
+        
+        guard let email = emailText.text , emailText.text != "" else { return }
+        guard let pass = passwordText.text, passwordText.text != "" else { return }
+        
+        AuthService.instance.registerUser(email: email, password: pass) { (success) in
+            if success  {
+                print("-- Smack : Registered \(email) user")
+            }
+        }
     }
     
     // Will unwind over to the targetted view, which was set to the ChannelVC
