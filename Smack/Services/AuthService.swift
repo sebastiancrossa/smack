@@ -89,7 +89,7 @@ class AuthService {
                 
                 // Using SwiftyJSON
                 guard let data = response.data else { return } // Making sure data exists
-                let json = JSON(data: data)
+                let json = JSON(data: data) // Creating a data object
                 
                 self.userEmail = json["user"].stringValue // Safely unwraps it as a String for us with .stringValue
                 self.authToken = json["token"].stringValue
@@ -102,7 +102,59 @@ class AuthService {
                 debugPrint(response.result.error as Any)
             }
         }
+    }
+    
+    // Function in charge of creating the user
+    func createUser(name: String, email: String, avatarName: String, avatarColor: String, completion: @escaping CompletionHandler) {
+        let lowerCaseEmail = email.lowercased()
+        
+        let body: [String: Any] = [
+            "name": name,
+            "email": lowerCaseEmail,
+            "avatarName": avatarName,
+            "avatarColor": avatarColor
+        ]
+        
+        let header = [
+            "Authorization": "Bearer \(AuthService.instance.authToken)",
+            "Content-Type": "application/json; charset=utf-8"
+        ]
+        
+        Alamofire.request(URL_USER_ADD, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+            if response.result.error == nil {
+                // JSON parsing
+                guard let data = response.data else { return }
+                let json = JSON(data: data)
+                
+                // Variables that will be passed to the UserDataService function created
+                let id = json["_id"].stringValue
+                let color = json["avatarColor"].stringValue
+                let avatarName = json["avatarName"].stringValue
+                let email = json["email"].stringValue
+                let name = json["name"].stringValue
+                
+                UserDataService.instance.setUserData(id: id, color: color, avatarName: avatarName, email: email, name: name)
+                
+                completion(true)
+            } else {
+                completion(false)
+                debugPrint("-- Smack : Error in createUser function", response.result.error as Any)
+            }
+        }
         
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }

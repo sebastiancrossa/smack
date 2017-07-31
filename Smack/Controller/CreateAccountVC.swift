@@ -17,6 +17,10 @@ class CreateAccountVC: UIViewController {
     
     @IBOutlet weak var userImage: UIImageView!
     
+    // Default variables
+    var avatarName = "profileDefault"
+    var avatarColor = "[0.5, 0.5, 0.5, 1]" // Gives us a default light grey color
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -31,6 +35,7 @@ class CreateAccountVC: UIViewController {
     
     @IBAction func createAccountPressed(_ sender: Any) {
         
+        guard let name = usernameText.text , usernameText.text != "" else { return }
         guard let email = emailText.text , emailText.text != "" else { return }
         guard let pass = passwordText.text, passwordText.text != "" else { return }
         
@@ -38,11 +43,20 @@ class CreateAccountVC: UIViewController {
             if success  {
                 AuthService.instance.loginUser(email: email, password: pass, completion: { (success) in
                     if success {
-                        print("-- Smack : Logged in user with token of ", AuthService.instance.authToken)
+                        AuthService.instance.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
+                            if success {
+                                print(UserDataService.instance.name, UserDataService.instance.avatarName)
+                                self.performSegue(withIdentifier: UNWIND, sender: nil) // Will return to the main screen
+                            }
+                        })
                     }
                 })
             }
         }
+        
+        usernameText.text = ""
+        emailText.text = ""
+        passwordText.text = ""
     }
     
     // Will unwind over to the targetted view, which was set to the ChannelVC
