@@ -17,7 +17,7 @@ class AuthService {
     // Easiest way of saving persistent data on the device
     let defaults = UserDefaults.standard
     
-    var isLogged: Bool {
+    var isLoggedIn: Bool {
         // Get = When we try to access it
         // Set = When we try to set it
         get {
@@ -43,14 +43,9 @@ class AuthService {
         }
     }
     
-    // Function that is in charge of handling the web request
+    // Function in charge of registering a user with a web request
     func registerUser(email: String, password: String, completion: @escaping CompletionHandler) {
         let lowerCaseEmail = email.lowercased()
-        
-        // Defining the header and body
-        let header = [
-            "Content-Type": "application/json; charset=utf-8"
-        ]
         
         let body: [String: Any] = [
             "email": lowerCaseEmail,
@@ -58,7 +53,7 @@ class AuthService {
         ]
         
         // Creating the actual web request
-        Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseString { (response) in
+        Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseString { (response) in
             if response.result.error == nil {
                 completion(true)
             } else {
@@ -66,6 +61,40 @@ class AuthService {
                 debugPrint(response.result.error as Any)
             }
         }
+    }
+    
+    // Function in charge of logging in the user, with an AUTH token as a response
+    func loginUser(email: String, password: String, completion: @escaping CompletionHandler) {
+        let lowerCaseEmail = email.lowercased()
+        
+        let body: [String: Any] = [
+            "email": lowerCaseEmail,
+            "password": password
+        ]
+        
+        // Request that will recieve the auth token of the email logged in
+        Alamofire.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
+            // JSON parsing
+            if response.result.error == nil {
+                if let json = response.result.value as? Dictionary<String, Any> {
+                    if let email = json["user"] as? String {
+                        self.userEmail = email
+                    }
+                    
+                    if let token = json["token"] as? String {
+                        self.authToken = token
+                    }
+                }
+                
+                // Succesfully logged in a user
+                self.isLoggedIn = true
+                completion(true)
+            } else {
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
+        
     }
     
 }
