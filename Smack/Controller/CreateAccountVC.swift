@@ -81,6 +81,8 @@ class CreateAccountVC: UIViewController {
                                 
                                 print(UserDataService.instance.name, UserDataService.instance.avatarName)
                                 self.performSegue(withIdentifier: UNWIND, sender: nil) // Will return to the main screen
+                                
+                                NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
                             }
                         })
                     }
