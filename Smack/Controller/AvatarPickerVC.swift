@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AvatarPickerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class AvatarPickerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // Outlets
     @IBOutlet weak var collectionView: UICollectionView!
@@ -44,11 +44,37 @@ class AvatarPickerVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBAction func segmentControlChanged (_ sender: Any) {
         if segmentControl.selectedSegmentIndex == 1 {
             avatarType = AvatarType.light
-            collectionView.reloadData()
         } else {
             avatarType = AvatarType.dark
-            collectionView.reloadData()
         }
+        
+        collectionView.reloadData()
+    }
+    
+    // Function in charge of adapting to bigger and smaller sizes
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        var numberOfColumns: CGFloat = 3
+        
+        // If it's a smaller phone the collection view will have 3 columns, else they will have 4
+        if UIScreen.main.bounds.width > 320 {
+            numberOfColumns = 4
+        }
+        
+        let spaceBetweenCells: CGFloat = 10
+        let padding: CGFloat = 40
+        let cellDimension = ((collectionView.bounds.width - padding) - (numberOfColumns - 1) * spaceBetweenCells) / numberOfColumns
+        
+        return CGSize(width: cellDimension, height: cellDimension)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if avatarType == .dark {
+            UserDataService.instance.setAvatarName(avatarName: "dark\(indexPath.item)")
+        } else {
+            UserDataService.instance.setAvatarName(avatarName: "light\(indexPath.item)")
+        }
+        
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func backPressed (_ sender: Any) {
