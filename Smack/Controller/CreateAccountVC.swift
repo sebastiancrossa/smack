@@ -17,6 +17,8 @@ class CreateAccountVC: UIViewController {
     
     @IBOutlet weak var userImage: UIImageView!
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     // Default variables
     var avatarName = "profileDefault"
     var avatarColor = "[0.5, 0.5, 0.5, 1]" // Gives us a default light grey color
@@ -24,6 +26,8 @@ class CreateAccountVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -59,6 +63,9 @@ class CreateAccountVC: UIViewController {
     
     @IBAction func createAccountPressed(_ sender: Any) {
         
+        spinner.isHidden = false
+        spinner.startAnimating()
+        
         guard let name = usernameText.text , usernameText.text != "" else { return }
         guard let email = emailText.text , emailText.text != "" else { return }
         guard let pass = passwordText.text, passwordText.text != "" else { return }
@@ -69,6 +76,9 @@ class CreateAccountVC: UIViewController {
                     if success {
                         AuthService.instance.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
                             if success {
+                                self.spinner.isHidden = true
+                                self.spinner.stopAnimating()
+                                
                                 print(UserDataService.instance.name, UserDataService.instance.avatarName)
                                 self.performSegue(withIdentifier: UNWIND, sender: nil) // Will return to the main screen
                             }
@@ -81,6 +91,18 @@ class CreateAccountVC: UIViewController {
         usernameText.text = ""
         emailText.text = ""
         passwordText.text = ""
+    }
+    
+    func setupView() {
+        spinner.isHidden = true
+        
+        // End editing when user taps on the screen
+        let tap = UITapGestureRecognizer(target: self, action: #selector(CreateAccountVC.handleTap))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func handleTap() {
+        view.endEditing(true)
     }
     
     // Will unwind over to the targetted view, which was set to the ChannelVC
