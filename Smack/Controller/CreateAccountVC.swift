@@ -52,6 +52,7 @@ class CreateAccountVC: UIViewController {
         let b = CGFloat(arc4random_uniform(255)) / 255
         
         bgColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+        avatarColor = "[\(r), \(g), \(b), 1]"
         
         // Will make the change of bg color a lot more smoother
         UIView.animate(withDuration: 0.2) {
@@ -82,6 +83,7 @@ class CreateAccountVC: UIViewController {
                                 print(UserDataService.instance.name, UserDataService.instance.avatarName)
                                 self.performSegue(withIdentifier: UNWIND, sender: nil) // Will return to the main screen
                                 
+                                // Posts the notification
                                 NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
                             }
                         })
