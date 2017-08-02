@@ -226,7 +226,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="o2O-hp-f5r">
                                 <rect key="frame" x="62" y="160" width="250" height="86"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CJF-n9-VJm">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CJF-n9-VJm">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="vqo-Va-Hqu"/>
@@ -285,6 +285,9 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginPressed:" destination="DwB-xL-Ie9" eventType="touchUpInside" id="Hos-Mw-dPm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbw-2Q-7GJ">
                                 <rect key="frame" x="88" y="336" width="199" height="26"/>
@@ -300,10 +303,16 @@
                                     <action selector="createAccountButtonPressed:" destination="DwB-xL-Ie9" eventType="touchUpInside" id="Hmr-zq-vSe"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="WAP-oT-DDf">
+                                <rect key="frame" x="169" y="215" width="37" height="37"/>
+                                <color key="color" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="o2O-hp-f5r" firstAttribute="top" secondItem="fiI-mY-UeO" secondAttribute="bottom" constant="40" id="4X8-0j-SrQ"/>
+                            <constraint firstItem="WAP-oT-DDf" firstAttribute="centerY" secondItem="ElT-f0-mmM" secondAttribute="centerY" constant="-100" id="8YY-HI-Gpk"/>
+                            <constraint firstItem="WAP-oT-DDf" firstAttribute="centerX" secondItem="ElT-f0-mmM" secondAttribute="centerX" id="EB3-bT-xkr"/>
                             <constraint firstItem="o2O-hp-f5r" firstAttribute="centerX" secondItem="ElT-f0-mmM" secondAttribute="centerX" id="GsU-ip-JTY"/>
                             <constraint firstItem="9Wi-83-XPJ" firstAttribute="top" secondItem="o2O-hp-f5r" secondAttribute="bottom" constant="40" id="K0k-gS-ny0"/>
                             <constraint firstItem="pbw-2Q-7GJ" firstAttribute="top" secondItem="9Wi-83-XPJ" secondAttribute="bottom" id="NWB-iK-DSR"/>
@@ -316,6 +325,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="passwordText" destination="huc-GT-hNg" id="0F1-uM-E4R"/>
+                        <outlet property="spinner" destination="WAP-oT-DDf" id="tgF-JS-D69"/>
+                        <outlet property="usernameText" destination="CJF-n9-VJm" id="NLe-4T-C3u"/>
                         <segue destination="xc1-er-FdN" kind="show" identifier="toCreateAccount" id="3Pi-Yl-ttw"/>
                     </connections>
                 </viewController>

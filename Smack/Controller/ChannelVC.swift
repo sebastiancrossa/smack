@@ -26,6 +26,10 @@ class ChannelVC: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        setupUserInfo()
+    }
+    
     // Will segue over to the LoginVC
     @IBAction func loginButtonPressed(_ sender: Any) {
         if AuthService.instance.isLoggedIn {
@@ -40,6 +44,11 @@ class ChannelVC: UIViewController {
     
     // Called every time we recieve the notification of a user changing data
     @objc func userDataDidChange(_ notif: Notification) {
+        setupUserInfo()
+    }
+    
+    // In charge of loading up the users name and profile picture
+    func setupUserInfo() {
         if AuthService.instance.isLoggedIn {
             loginButton.setTitle(UserDataService.instance.name, for: .normal)
             userImage.image = UIImage(named: UserDataService.instance.avatarName)

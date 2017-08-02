@@ -21,6 +21,12 @@ class ChatVC: UIViewController {
         // Implement gesture recognizers that will help make the reveal smoother
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        
+        if AuthService.instance.isLoggedIn {
+            AuthService.instance.findUserByEmail(completion: { (success) in
+                NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+            })
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

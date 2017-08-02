@@ -38,5 +38,4 @@ class AvatarCell: UICollectionViewCell {
         self.layer.cornerRadius = 5
         self.clipsToBounds = true
     }
-    
 }
