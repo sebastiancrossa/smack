@@ -27,6 +27,12 @@ class ChatVC: UIViewController {
                 NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
             })
         }
+        
+        // Downlaads the channels
+        MessageService.instance.findAllChannel { (success) in
+            
+        }
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
