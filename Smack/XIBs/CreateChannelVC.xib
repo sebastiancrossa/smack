@@ -9,12 +9,16 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
             <string>HelveticaNeue-Bold</string>
         </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateChannelVC" customModule="Smack" customModuleProvider="target">
             <connections>
+                <outlet property="bgView" destination="CcL-Wa-yuJ" id="xiK-Ok-36r"/>
+                <outlet property="channelDescription" destination="O5o-d6-3lQ" id="P5Q-i4-50L"/>
+                <outlet property="nameText" destination="6wi-QN-mfD" id="MMX-1F-WOa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -37,19 +41,19 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="5ih-bJ-0SR">
-                            <rect key="frame" x="42" y="100" width="250" height="80"/>
+                            <rect key="frame" x="42" y="97" width="250" height="86"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6wi-QN-mfD">
-                                    <rect key="frame" x="0.0" y="0.0" width="250" height="17"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="250" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="250" id="l2a-F1-eiU"/>
                                     </constraints>
                                     <color key="textColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="np3-KE-nMy">
-                                    <rect key="frame" x="0.0" y="31" width="250" height="2"/>
+                                    <rect key="frame" x="0.0" y="34" width="250" height="2"/>
                                     <color key="backgroundColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="2" id="Eo9-oH-QPd"/>
@@ -57,16 +61,16 @@
                                     </constraints>
                                 </view>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O5o-d6-3lQ">
-                                    <rect key="frame" x="0.0" y="47" width="250" height="17"/>
+                                    <rect key="frame" x="0.0" y="50" width="250" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="250" id="xEk-Lz-tQa"/>
                                     </constraints>
                                     <color key="textColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uyl-aR-1ez">
-                                    <rect key="frame" x="0.0" y="78" width="250" height="2"/>
+                                    <rect key="frame" x="0.0" y="84" width="250" height="2"/>
                                     <color key="backgroundColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="2" id="sm4-ai-BXq"/>
@@ -82,6 +86,9 @@
                                 <constraint firstAttribute="height" constant="30" id="q9Z-sK-i6b"/>
                             </constraints>
                             <state key="normal" image="closeButton"/>
+                            <connections>
+                                <action selector="closeModalPressed:" destination="-1" eventType="touchUpInside" id="FIQ-n0-Dfe"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBO-L9-Gkh" customClass="RoundedButton" customModule="Smack" customModuleProvider="target">
                             <rect key="frame" x="42" y="250" width="250" height="50"/>
@@ -99,6 +106,9 @@
                                     <real key="value" value="5"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="createChannelPressed:" destination="-1" eventType="touchUpInside" id="HuA-9S-5Zv"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -126,11 +136,6 @@
                 <constraint firstAttribute="trailing" secondItem="CcL-Wa-yuJ" secondAttribute="trailing" id="nmx-rz-e32"/>
             </constraints>
             <point key="canvasLocation" x="35.5" y="54.5"/>
-        </view>
-        <view contentMode="scaleToFill" id="tgC-Y9-4dF">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
         </view>
     </objects>
     <resources>

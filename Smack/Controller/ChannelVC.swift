@@ -65,6 +65,13 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    @IBAction func createChannelPressed(_ sender: Any) {
+        let createChannel = CreateChannelVC()
+        
+        createChannel.modalPresentationStyle = .custom
+        present(createChannel, animated: true, completion: nil)
+    }
+    
     // Conforming to the table view protocols
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "channelCell", for: indexPath) as? ChannelCell {
