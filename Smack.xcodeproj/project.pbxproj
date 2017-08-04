@@ -30,6 +30,7 @@
 		98B8FD6B1F3267D00002F8CA /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B8FD6A1F3267D00002F8CA /* ChannelCell.swift */; };
 		98CD70E41F2ECCD400FFB244 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD70E31F2ECCD400FFB244 /* RoundedButton.swift */; };
 		98D243541F2D9D60000D86F9 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D243531F2D9D60000D86F9 /* CreateAccountVC.swift */; };
+		98F2E33D1F342A0300A54B2E /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F2E33C1F342A0300A54B2E /* RoundedView.swift */; };
 		98F908EC1F31867D002289B6 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F908EA1F31867D002289B6 /* ProfileVC.swift */; };
 		98F908ED1F31867D002289B6 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98F908EB1F31867D002289B6 /* ProfileVC.xib */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		98B8FD6A1F3267D00002F8CA /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		98CD70E31F2ECCD400FFB244 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		98D243531F2D9D60000D86F9 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
+		98F2E33C1F342A0300A54B2E /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		98F908EA1F31867D002289B6 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		98F908EB1F31867D002289B6 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
 		A588330179790104E628DB7A /* Pods-Smack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smack/Pods-Smack.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			children = (
 				984AD50E1F2D875E00721289 /* GradientView.swift */,
 				98CD70E31F2ECCD400FFB244 /* RoundedButton.swift */,
+				98F2E33C1F342A0300A54B2E /* RoundedView.swift */,
 				9811FE241F30385900B21425 /* CircleImage.swift */,
 				9800E61C1F2FEBED005AAC53 /* AvatarCell.swift */,
 				98B8FD6A1F3267D00002F8CA /* ChannelCell.swift */,
@@ -338,6 +341,7 @@
 				98B8FD691F3260EA0002F8CA /* Channel.swift in Sources */,
 				9811FE251F30385900B21425 /* CircleImage.swift in Sources */,
 				98B8FD671F3260C10002F8CA /* MessageService.swift in Sources */,
+				98F2E33D1F342A0300A54B2E /* RoundedView.swift in Sources */,
 				9885B90C1F2D82FE0025519D /* ChatVC.swift in Sources */,
 				986BB1A41F33E5300076B73F /* CreateChannelVC.swift in Sources */,
 				9850BAF41F2F960A002E44AF /* UserDataService.swift in Sources */,

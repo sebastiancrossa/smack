@@ -31,7 +31,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rEe-Vg-Ssh">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rEe-Vg-Ssh" customClass="RoundedView" customModule="Smack" customModuleProvider="target">
                     <rect key="frame" x="20" y="80" width="335" height="320"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Channel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n4v-3m-ljh">
@@ -123,6 +123,11 @@
                         <constraint firstItem="vBO-L9-Gkh" firstAttribute="centerX" secondItem="rEe-Vg-Ssh" secondAttribute="centerX" id="ru6-je-vUA"/>
                         <constraint firstAttribute="height" constant="320" id="t1a-EM-FcY"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

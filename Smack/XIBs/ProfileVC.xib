@@ -32,7 +32,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="77e-pb-x6y">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="77e-pb-x6y" customClass="RoundedView" customModule="Smack" customModuleProvider="target">
                     <rect key="frame" x="20" y="158.5" width="335" height="350"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F73-di-WpD">
@@ -93,6 +93,11 @@
                         <constraint firstItem="F73-di-WpD" firstAttribute="top" secondItem="77e-pb-x6y" secondAttribute="top" constant="8" id="T3z-RZ-ucF"/>
                         <constraint firstItem="ZDH-4q-ymd" firstAttribute="centerX" secondItem="77e-pb-x6y" secondAttribute="centerX" id="imH-zz-XAD"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
