@@ -1,5 +1,5 @@
 //
-//  CreateChannelVC.swift
+//  AddChannelVC.swift
 //  Smack
 //
 //  Created by Sebastian Crossa on 8/3/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateChannelVC: UIViewController {
+class AddChannelVC: UIViewController {
     
     // Outlets
     @IBOutlet weak var nameText: UITextField!
@@ -22,7 +22,14 @@ class CreateChannelVC: UIViewController {
     }
     
     @IBAction func createChannelPressed(_ sender: Any) {
+        guard let name = nameText.text , nameText.text != "" else { return }
+        guard let description = channelDescription.text else { return }
         
+        SocketService.instance.addChannel(channelName: name, channelDescription: description) { (success) in
+            if success {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
     @IBAction func closeModalPressed(_ sender: Any) {
@@ -30,10 +37,8 @@ class CreateChannelVC: UIViewController {
     }
     
     func setupView() {
-    
-        let closeTouch = UITapGestureRecognizer(target: self, action: #selector(CreateChannelVC.closeTap(_:)))
+        let closeTouch = UITapGestureRecognizer(target: self, action: #selector(ProfileVC.closeTap(_:)))
         bgView.addGestureRecognizer(closeTouch)
-    
     }
     
     @objc func closeTap(_ recognizer: UITapGestureRecognizer) {

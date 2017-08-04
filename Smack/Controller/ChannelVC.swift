@@ -29,6 +29,13 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
         
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+        
+        // Will listen to the creation of channels and reloading table view
+        SocketService.instance.getChannel { (success) in
+            if success {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -66,7 +73,7 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func createChannelPressed(_ sender: Any) {
-        let createChannel = CreateChannelVC()
+        let createChannel = AddChannelVC()
         
         createChannel.modalPresentationStyle = .custom
         present(createChannel, animated: true, completion: nil)

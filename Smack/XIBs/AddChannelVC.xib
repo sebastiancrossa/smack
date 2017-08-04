@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateChannelVC" customModule="Smack" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddChannelVC" customModule="Smack" customModuleProvider="target">
             <connections>
                 <outlet property="bgView" destination="CcL-Wa-yuJ" id="xiK-Ok-36r"/>
                 <outlet property="channelDescription" destination="O5o-d6-3lQ" id="P5Q-i4-50L"/>

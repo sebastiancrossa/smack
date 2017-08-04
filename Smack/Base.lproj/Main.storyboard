@@ -120,7 +120,7 @@
                                 <rect key="frame" x="281" y="83" width="22" height="22"/>
                                 <state key="normal" image="addChannelButton"/>
                                 <connections>
-                                    <action selector="createChannelPressed:" destination="vQM-fu-V1S" eventType="touchUpInside" id="MKB-wT-Yif"/>
+                                    <action selector="createChannelPressed:" destination="vQM-fu-V1S" eventType="touchUpInside" id="5Mu-n3-89J"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZp-Mj-QVx">
@@ -165,7 +165,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <outlet property="channelNAme" destination="bKy-GU-KJx" id="F2k-bS-xrk"/>
+                                            <outlet property="channelName" destination="bKy-GU-KJx" id="Mec-Ff-UPR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
