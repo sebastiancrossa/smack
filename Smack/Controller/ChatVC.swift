@@ -15,8 +15,12 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var channelNameLabel: UILabel!
     
     @IBOutlet weak var messageTextBox: UITextField!
+    @IBOutlet weak var sendButton: UIButton!
     
     @IBOutlet weak var tableView: UITableView!
+    
+    // Variables
+    var isTyping = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +33,8 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // Automatic sizing each cell depending on the text sent
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        sendButton.isHidden = true
         
         // Manually adding the reveal toggle to the menuButton
         menuButton.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
@@ -71,6 +77,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             onLoginGetMessages()
         } else {
             channelNameLabel.text = "Please Log In"
+            tableView.reloadData()
         }
     }
     
@@ -83,6 +90,19 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         channelNameLabel.text = "#\(channelName)"
         getMessages()
+    }
+    
+    @IBAction func messageBoxEditing(_ sender: Any) {
+        if messageTextBox.text == "" {
+            isTyping = false
+            sendButton.isHidden = true
+        } else {
+            if isTyping == false {
+                sendButton.isHidden = false
+            }
+            
+            isTyping = true
+        }
     }
     
     @IBAction func sendMessagePressed(_ sender: Any) {
