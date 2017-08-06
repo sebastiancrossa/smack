@@ -61,7 +61,7 @@ class MessageService {
                         let userAvatarColor = item["userAvatarColor"].stringValue
                         let timeStamp = item["timeStamp"].stringValue
                         
-                        let message = Message(message: messageBody, userName: userName, channelId: channelId, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: id, timeStamp: timeStamp)
+                        let message = Message(message: messageBody, userName:  userName, channelId: channelId, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: id, timeStamp: timeStamp)
                         self.messages.append(message)
                     }
                     

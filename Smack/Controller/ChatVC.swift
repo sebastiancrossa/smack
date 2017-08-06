@@ -14,8 +14,12 @@ class ChatVC: UIViewController {
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var channelNameLabel: UILabel!
     
+    @IBOutlet weak var messageTextBox: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.bindToKeyboard()
         
         // Manually adding the reveal toggle to the menuButton
         menuButton.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
@@ -33,6 +37,10 @@ class ChatVC: UIViewController {
                 NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
             })
         }
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ChatVC.handleTap))
+        view.addGestureRecognizer(tap)
+        
     }
     
     @objc func userDataDidChange(_ notif: Notification) {
@@ -55,6 +63,10 @@ class ChatVC: UIViewController {
         getMessages()
     }
     
+    @IBAction func sendMessagePressed(_ sender: Any) {
+        
+    }
+    
     func onLoginGetMessages() {
         MessageService.instance.findAllChannel { (success) in
             if success {
@@ -64,7 +76,7 @@ class ChatVC: UIViewController {
                 } else {
                     self.channelNameLabel.text = "No channels yet!!"
                 }
-            }
+            } 
         }
     }
     
@@ -76,6 +88,10 @@ class ChatVC: UIViewController {
                 
             }
         }
+    }
+    
+    @objc func handleTap() {
+        view.endEditing(true)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
