@@ -26,6 +26,10 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
+        // Automatic sizing each cell depending on the text sent
+        tableView.estimatedRowHeight = 80
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
         // Manually adding the reveal toggle to the menuButton
         menuButton.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         
