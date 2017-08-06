@@ -46,7 +46,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 self.tableView.reloadData()
                 
                 // If we have more then 0 messages, we will scroll to the latest message
-                MessageService.instance.messages.count > 0 {
+                if MessageService.instance.messages.count > 0 {
                     let endIndex = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
                     
                     self.tableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
