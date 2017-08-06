@@ -3,7 +3,7 @@ build/
 DerivedData/
 
 ## Specifics
-Constants.swift
+Smack/Utilities/Constants.swift
 
 ## Various settings
 *.pbxuser
