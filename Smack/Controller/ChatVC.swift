@@ -97,15 +97,17 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             isTyping = false
             sendButton.isHidden = true
         } else {
-            if isTyping == false {
+            if isTyping == true {
                 sendButton.isHidden = false
             }
             
+            sendButton.isHidden = false
             isTyping = true
         }
     }
     
     @IBAction func sendMessagePressed(_ sender: Any) {
+        
         if AuthService.instance.isLoggedIn {
             guard let channelId = MessageService.instance.selectedChannel?.id else { return }
             guard let message = messageTextBox.text else { return }
