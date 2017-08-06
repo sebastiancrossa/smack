@@ -69,14 +69,19 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             loginButton.setTitle("Login", for: .normal)
             userImage.image = UIImage(named: "menuProfileIcon")
             userImage.backgroundColor = UIColor.clear
+            
+            // Will reload the tableView so it can display all of the channels
+            tableView.reloadData()
         }
     }
     
     @IBAction func createChannelPressed(_ sender: Any) {
-        let createChannel = AddChannelVC()
-        
-        createChannel.modalPresentationStyle = .custom
-        present(createChannel, animated: true, completion: nil)
+        if AuthService.instance.isLoggedIn {
+            let createChannel = AddChannelVC()
+            
+            createChannel.modalPresentationStyle = .custom
+            present(createChannel, animated: true, completion: nil)
+        }
     }
     
     // Conforming to the table view protocols
