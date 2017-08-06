@@ -25,7 +25,9 @@ class AddChannelVC: UIViewController {
         guard let name = nameText.text , nameText.text != "" else { return }
         guard let description = channelDescription.text else { return }
         
-        SocketService.instance.addChannel(channelName: name, channelDescription: description) { (success) in
+        let transformedName = name.replacingOccurrences(of: " ", with: "-")
+        
+        SocketService.instance.addChannel(channelName: transformedName, channelDescription: description) { (success) in
             if success {
                 self.dismiss(animated: true, completion: nil)
             }
