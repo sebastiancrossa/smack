@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatVC: UIViewController {
+class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // Outlets
     @IBOutlet weak var menuButton: UIButton!
@@ -16,10 +16,15 @@ class ChatVC: UIViewController {
     
     @IBOutlet weak var messageTextBox: UITextField!
     
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.bindToKeyboard()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         
         // Manually adding the reveal toggle to the menuButton
         menuButton.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
@@ -96,13 +101,33 @@ class ChatVC: UIViewController {
         
         MessageService.instance.findAllMessagesForChannel(channelId: channelId) { (success) in
             if success {
-                
+                self.tableView.reloadData()
             }
         }
     }
     
     @objc func handleTap() {
         view.endEditing(true)
+    }
+    
+    // Conforming to the table view protocols
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as? MessageCell {
+            let message = MessageService.instance.messages[indexPath.row]
+            cell.configureCell(message: message)
+            
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return MessageService.instance.messages.count
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
