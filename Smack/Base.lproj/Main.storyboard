@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -154,10 +155,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="es5-b1-ruM">
+                                <rect key="frame" x="8" y="621" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xm7-Gr-ZRz" firstAttribute="top" secondItem="es5-b1-ruM" secondAttribute="bottom" constant="6" id="5mX-x9-V8R"/>
                             <constraint firstItem="Xw5-hn-6Tf" firstAttribute="centerY" secondItem="xm7-Gr-ZRz" secondAttribute="centerY" id="7nZ-Py-ssK"/>
+                            <constraint firstItem="es5-b1-ruM" firstAttribute="leading" secondItem="ovc-Bi-9kX" secondAttribute="leading" constant="8" id="CFd-Ai-xl9"/>
                             <constraint firstItem="SWX-HH-if4" firstAttribute="leading" secondItem="ovc-Bi-9kX" secondAttribute="leading" id="DUz-aS-Ng3"/>
                             <constraint firstAttribute="trailing" secondItem="xm7-Gr-ZRz" secondAttribute="trailing" id="F3m-BE-KbL"/>
                             <constraint firstAttribute="trailing" secondItem="JRt-xT-0gi" secondAttribute="trailing" id="HgD-w9-D3F"/>
@@ -177,6 +186,7 @@
                         <outlet property="messageTextBox" destination="xm7-Gr-ZRz" id="vH9-Tw-dAP"/>
                         <outlet property="sendButton" destination="Xw5-hn-6Tf" id="BeB-hn-jqk"/>
                         <outlet property="tableView" destination="SWX-HH-if4" id="dLp-d0-fHx"/>
+                        <outlet property="typingUserLabel" destination="es5-b1-ruM" id="VZH-SF-Kp2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ryj-Xz-gpp" userLabel="First Responder" sceneMemberID="firstResponder"/>
